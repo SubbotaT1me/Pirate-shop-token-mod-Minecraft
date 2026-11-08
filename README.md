@@ -1,25 +1,59 @@
+# Pirate Shop Token mod
 
-Installation information
-=======
+Can't get the Pirate Shop Token in Fortnite? You'll definitely get it in Minecraft!
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+Every time you open a chest, a barrel or a shulker box, there's a tiny chance (1 in 10,000 by default) that a full-screen Pirate Shop Token animation with sound plays on your screen. It's purely visual: nothing is added to your inventory and nothing changes in your world.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+## Features
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+- Random chance when opening chests, barrels and shulker boxes
+- Full-screen animation with sound
+- Configurable chance (in-game: Mods → Pirate Shop Token mod → Config)
+- Client-side only, no need to install it on servers
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+## Installation
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+1. Install NeoForge for Minecraft 26.3
+2. Download the mod from [Modrinth](https://modrinth.com/mod/pstoken) (put your real link here)
+3. Put the `.jar` file into your `mods` folder
+
+## Configuration
+
+The config file is `config/pstoken_mod-client.toml`:
+
+```toml
+oneIn = 10000
+```
+
+The value means "1 in N" per container opened. Set it to `1` to see the animation every time.
+
+## Building from source
+
+Requirements: JDK 25.
+
+```
+gradlew build
+```
+
+The built jar will be in `build/libs`.
+
+The animation frames and the sound are not included in this repository.
+To build a working jar, add them yourself:
+
+- frames: `src/main/resources/assets/pstoken_mod/textures/gui/pstoken_vid_001.png` ... `pstoken_vid_211.png`
+- sound: `src/main/resources/assets/pstoken_mod/sounds/token_getting_sound.ogg`
+
+## Issues
+
+Found a bug? Please open an issue on the
+[issue tracker](https://github.com/Minemax10/Pirate-shop-token-mod-Minecraft/issues).
+
+## License
+
+All Rights Reserved (see `LICENSE`).
+
+## Disclaimer
+
+This is an unofficial fan project and is not affiliated with, endorsed by
+or sponsored by Epic Games. Fortnite and the Pirate Shop Token are the
+property of Epic Games, Inc. This mod is free and non-commercial.
